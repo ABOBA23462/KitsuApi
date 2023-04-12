@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#434"
+    android:background="@color/purple"
     tools:context=".ui.fragments.anime.AnimeFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_anime"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>

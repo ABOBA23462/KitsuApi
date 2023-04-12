@@ -10,5 +10,4 @@ class AnimeViewModel @Inject constructor(
     private val repository: AnimeRepository
 ) : ViewModel() {
     fun fetchAnime() = repository.fetchAnime()
-
 }

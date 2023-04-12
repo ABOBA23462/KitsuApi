@@ -20,7 +20,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
 
     override fun initialize() {
         binding.rvAnime.apply {
-layoutManager = GridLayoutManager(requireContext(), 3)
+            layoutManager = GridLayoutManager(requireContext(), 3)
             adapter = animeAdapter
         }
     }

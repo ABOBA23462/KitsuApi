@@ -12,27 +12,33 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/tab_layout"
+        app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/nav_graph" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
-        app:tabMode="scrollable"
-        app:tabIndicatorColor="@color/teal_200"
-        app:tabIndicatorHeight="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F7512D39"
+        android:contentDescription="@string/data"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="data"
         app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintBottom_toBottomOf="parent"/>
+        app:tabGravity="center"
+        app:tabIndicatorColor="@color/scarlet"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/orange"
+        app:tabTextAppearance="@style/textCaps" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tab_layout"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tab_layout"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

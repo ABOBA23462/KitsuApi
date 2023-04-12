@@ -1,32 +1,44 @@
 package com.example.kitsuapi.ui.fragments.manga
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kitsuapi.R
+import com.example.kitsuapi.Resource
+import com.example.kitsuapi.base.BaseFragment
+import com.example.kitsuapi.databinding.FragmentMangaBinding
+import com.example.kitsuapi.ui.adapters.manga.MangaAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class MangaFragment : Fragment() {
+@AndroidEntryPoint
+class MangaFragment : BaseFragment<FragmentMangaBinding, MangaViewModel>(R.layout.fragment_manga) {
 
-    companion object {
-        fun newInstance() = MangaFragment()
+    override val binding by viewBinding(FragmentMangaBinding::bind)
+    override val viewModel: MangaViewModel by viewModels()
+    private val mangaAdapter = MangaAdapter()
+
+    override fun initialize() {
+        binding.rvManga.apply {
+            layoutManager = GridLayoutManager(requireContext(), 3)
+            adapter = mangaAdapter
+        }
     }
 
-    private lateinit var viewModel: MangaViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_manga, container, false)
+    override fun setupObserves() {
+        viewModel.fetchManga().observe(viewLifecycleOwner) {
+            when (it) {
+                is Resource.Error<*> -> {
+                    Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
+                }
+                is Resource.Loading<*> -> {
+                }
+                is Resource.Success<*> -> {
+                    it.data?.let { data ->
+                        mangaAdapter.submitList(data.data)
+                    }
+                }
+            }
+        }
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MangaViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }

@@ -2,7 +2,6 @@ package com.example.kitsuapi.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.kitsuapi.R
 import com.example.kitsuapi.databinding.ActivityMainBinding
 import com.example.kitsuapi.ui.adapters.viewpager.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator

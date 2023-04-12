@@ -2,6 +2,7 @@ package com.example.kitsuapi.di
 
 import com.example.kitsuapi.data.remote.RetrofitClient
 import com.example.kitsuapi.data.remote.apiservice.AnimeApiService
+import com.example.kitsuapi.data.remote.apiservice.MangaApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +18,11 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideAnimeApiService(): AnimeApiService {
-        return retrofitClient.provideAnimeApiService()
-    }
+    fun provideAnimeApiService(): AnimeApiService =
+        retrofitClient.provideAnimeApiService()
+
+    @Singleton
+    @Provides
+    fun provideMangaApiService(): MangaApiService =
+        retrofitClient.provideMangaApiService()
 }
