@@ -41,12 +41,12 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="10"
-        app:layout_constraintBottom_toTopOf="@id/tab_layout"
-        tools:ignore="MissingConstraints" />
+<!--    <ProgressBar-->
+<!--        android:id="@+id/progress_bar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:max="10"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/tab_layout"-->
+<!--        tools:ignore="MissingConstraints" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
