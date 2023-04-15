@@ -2,14 +2,14 @@ package com.example.kitsuapi.ui.adapters.manga
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kitsuapi.base.BaseDiffUtilItemCallback
 import com.example.kitsuapi.databinding.ItemKitsuBinding
 import com.example.kitsuapi.extensions.setImage
 import com.example.kitsuapi.models.DataItem
 
-class MangaAdapter : ListAdapter<DataItem, MangaAdapter.ViewHolder>(
+class MangaAdapter : PagingDataAdapter<DataItem, MangaAdapter.ViewHolder>(
     BaseDiffUtilItemCallback()
 ) {
 
@@ -34,6 +34,6 @@ class MangaAdapter : ListAdapter<DataItem, MangaAdapter.ViewHolder>(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        getItem(position)?.let { holder.onBind(it) }
     }
 }

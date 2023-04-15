@@ -2,18 +2,18 @@ package com.example.kitsuapi.ui.adapters.anime
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kitsuapi.base.BaseDiffUtilItemCallback
 import com.example.kitsuapi.databinding.ItemKitsuBinding
 import com.example.kitsuapi.extensions.setImage
 import com.example.kitsuapi.models.DataItem
 
-class AnimeAdapter : ListAdapter<DataItem, AnimeAdapter.ViewHolder>(
+class AnimeAdapter : PagingDataAdapter<DataItem, AnimeAdapter.ViewHolder>(
     BaseDiffUtilItemCallback()
 ) {
 
-    class ViewHolder(private val binding: ItemKitsuBinding) :
+   inner class ViewHolder(private val binding: ItemKitsuBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(item: DataItem?) = with(binding) {
@@ -34,6 +34,6 @@ class AnimeAdapter : ListAdapter<DataItem, AnimeAdapter.ViewHolder>(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.onBind(getItem(position))
+        getItem(position)?.let { holder.onBind(it) }
     }
 }

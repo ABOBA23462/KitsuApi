@@ -1,32 +1,18 @@
 package com.example.kitsuapi.ui.fragments.anime.detail
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kitsuapi.R
+import com.example.kitsuapi.base.BaseFragment
+import com.example.kitsuapi.databinding.FragmentAnimeDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class AnimeDetailFragment : Fragment() {
+@AndroidEntryPoint
+class AnimeDetailFragment :  BaseFragment<FragmentAnimeDetailBinding, AnimeDetailViewModel>(R.layout.fragment_anime_detail) {
 
-    companion object {
-        fun newInstance() = AnimeDetailFragment()
-    }
-
-    private lateinit var viewModel: AnimeDetailViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_anime_detail, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(AnimeDetailViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+    override val binding by viewBinding(FragmentAnimeDetailBinding::bind)
+    override val viewModel: AnimeDetailViewModel by viewModels()
+    private val args by navArgs<AnimeDetailFragmentArgs>()
 
 }
