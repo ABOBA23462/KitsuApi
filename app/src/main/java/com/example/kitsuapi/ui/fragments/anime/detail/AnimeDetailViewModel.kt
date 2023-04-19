@@ -10,4 +10,5 @@ class AnimeDetailViewModel @Inject constructor(
     private val animeRepository: AnimeRepository
 ) : ViewModel() {
 
+    fun fetchDetailAnime(id: String) = animeRepository.fetchDetailAnime(id)
 }

@@ -2,6 +2,7 @@ package com.example.kitsuapi.ui.fragments.anime
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.kitsuapi.R
@@ -16,7 +17,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
 
     override val binding by viewBinding(FragmentAnimeBinding::bind)
     override val viewModel: AnimeViewModel by viewModels()
-    private val animeAdapter = AnimeAdapter()
+    private val animeAdapter = AnimeAdapter(this::onItemClick)
 
     override fun initialize() {
         binding.rvAnime.apply {
@@ -25,11 +26,17 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
         }
     }
 
-    override fun setupObserves() {
+    override fun setupSubscribes() {
         viewModel.fetchAnime().observe(viewLifecycleOwner) {
-                    lifecycleScope.launch {
-                        animeAdapter.submitData(it)
-                    }
+            lifecycleScope.launch {
+                animeAdapter.submitData(it)
+            }
         }
+    }
+
+    private fun onItemClick(id: String) {
+        findNavController().navigate(
+            AnimeFragmentDirections.actionAnimeFragmentToAnimeDetailFragment(id)
+        )
     }
 }

@@ -9,7 +9,7 @@ import com.example.kitsuapi.databinding.ItemKitsuBinding
 import com.example.kitsuapi.extensions.setImage
 import com.example.kitsuapi.models.DataItem
 
-class AnimeAdapter : PagingDataAdapter<DataItem, AnimeAdapter.ViewHolder>(
+class AnimeAdapter( val onItemClick: (id: String) -> Unit) : PagingDataAdapter<DataItem, AnimeAdapter.ViewHolder>(
     BaseDiffUtilItemCallback()
 ) {
 
@@ -20,6 +20,12 @@ class AnimeAdapter : PagingDataAdapter<DataItem, AnimeAdapter.ViewHolder>(
             name.text = item?.attributes?.titles?.enJp
             img.setImage(item!!.attributes.posterImage.large)
         }
+
+       init {
+           itemView.setOnClickListener {
+               getItem(absoluteAdapterPosition)?.let { it1 -> onItemClick(it1.id) }
+           }
+       }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

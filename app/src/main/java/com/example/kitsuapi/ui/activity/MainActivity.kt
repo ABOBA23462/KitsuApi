@@ -16,22 +16,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initialize()
+//        initialize()
     }
 
-    private fun initialize() {
-        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
-        binding.viewPager.adapter = adapter
-
-        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            when (position) {
-                0 -> {
-                    tab.text = "Anime"
-                }
-                1 -> {
-                    tab.text = "Manga"
-                }
-            }
-        }.attach()
-    }
+//    private fun initialize() {
+//        val adapter = ViewPagerAdapter(supportFragmentManager, lifecycle)
+//        binding.viewPager.adapter = adapter
+//
+//        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
+//            when (position) {
+//                0 -> {
+//                    tab.text = "Anime"
+//                }
+//                1 -> {
+//                    tab.text = "Manga"
+//                }
+//            }
+//        }.attach()
+//    }
 }
