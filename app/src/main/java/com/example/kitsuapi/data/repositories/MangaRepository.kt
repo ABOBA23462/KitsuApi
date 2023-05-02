@@ -11,7 +11,6 @@ class MangaRepository @Inject constructor(
     private val service: MangaApiService
 ) {
 
-
     fun fetchManga() = Pager(
         PagingConfig(pageSize = 20, initialLoadSize = 10)
     ) {

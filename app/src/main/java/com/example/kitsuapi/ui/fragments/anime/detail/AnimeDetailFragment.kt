@@ -1,14 +1,13 @@
 package com.example.kitsuapi.ui.fragments.anime.detail
 
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.bumptech.glide.Glide
 import com.example.kitsuapi.R
-import com.example.kitsuapi.Resource
 import com.example.kitsuapi.base.BaseFragment
 import com.example.kitsuapi.databinding.FragmentAnimeDetailBinding
-import com.example.kitsuapi.extensions.setImage
+import com.example.kitsuapi.extensions.toast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,21 +19,23 @@ class AnimeDetailFragment : BaseFragment<FragmentAnimeDetailBinding, AnimeDetail
     private val args: AnimeDetailFragmentArgs by navArgs()
 
     override fun setupSubscribes() {
-        viewModel.fetchDetailAnime(args.id).observe(viewLifecycleOwner) {
-            when (it) {
-                is Resource.Error -> {
-                    Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
-                }
-                is Resource.Loading -> {
-                }
-                is Resource.Success -> {
-                    it.data.let { anime ->
-//                        binding.detailName.text = anime!!.data.attributes.titles.enJp
-//                        binding.detailImg.setImage(anime.data.attributes.posterImage.original)
-                        Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT).show()
-                    }
+        subscribeToAnimeDetail()
+    }
+
+    private fun subscribeToAnimeDetail() = with(binding) {
+        viewModel.fetchDetailAnime(args.id).subscribe(
+            onError = {
+                toast(it)
+            },
+            onSuccess = {
+                it.data.let {
+                    Glide.with(detailImg.context)
+                        .load(it.attributes.posterImage.original)
+                        .into(detailImg)
+                    tvName.text = it.attributes.titles.enJp
+                    toast("Успешно")
                 }
             }
-        }
+        )
     }
 }

@@ -3,42 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/animeFragment">
+    app:startDestination="@id/homeFlowFragment">
+
 
     <fragment
-        android:id="@+id/animeFragment"
-        android:name="com.example.kitsuapi.ui.fragments.anime.AnimeFragment"
-        android:label="fragment_anime"
-        tools:layout="@layout/fragment_anime" >
+        android:id="@+id/signInFlowFragment"
+        android:name="com.example.kitsuapi.ui.fragments.sign.flow.SignInFlowFragment"
+        android:label="fragment_sign_in_flow"
+        tools:layout="@layout/fragment_sign_in_flow">
         <action
-            android:id="@+id/action_animeFragment_to_animeDetailFragment"
-            app:destination="@id/animeDetailFragment" />
+            android:id="@+id/action_signInFlowFragment_to_homeFlowFragment"
+            app:destination="@id/homeFlowFragment"
+            app:popUpTo="@id/nav_graph.xml" />
     </fragment>
     <fragment
-        android:id="@+id/mangaFragment"
-        android:name="com.example.kitsuapi.ui.fragments.manga.MangaFragment"
-        android:label="fragment_manga"
-        tools:layout="@layout/fragment_manga" >
-        <action
-            android:id="@+id/action_mangaFragment_to_mangaDetailFragment"
-            app:destination="@id/mangaDetailFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/animeDetailFragment"
-        android:name="com.example.kitsuapi.ui.fragments.anime.detail.AnimeDetailFragment"
-        android:label="fragment_anime_detail"
-        tools:layout="@layout/fragment_anime_detail" >
-        <argument
-            android:name="id"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/mangaDetailFragment"
-        android:name="com.example.kitsuapi.ui.fragments.manga.detail.MangaDetailFragment"
-        android:label="fragment_manga_detail"
-        tools:layout="@layout/fragment_manga_detail" >
-        <argument
-            android:name="id"
-            app:argType="string" />
-    </fragment>
+        android:id="@+id/homeFlowFragment"
+        android:name="com.example.kitsuapi.ui.fragments.home.flow.HomeFlowFragment"
+        android:label="fragment_home_flow"
+        tools:layout="@layout/fragment_home_flow" />
 </navigation>

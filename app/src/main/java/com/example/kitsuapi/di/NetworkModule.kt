@@ -3,6 +3,7 @@ package com.example.kitsuapi.di
 import com.example.kitsuapi.data.remote.RetrofitClient
 import com.example.kitsuapi.data.remote.apiservice.AnimeApiService
 import com.example.kitsuapi.data.remote.apiservice.MangaApiService
+import com.example.kitsuapi.data.remote.apiservice.SignInApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,4 +26,9 @@ object NetworkModule {
     @Provides
     fun provideMangaApiService(): MangaApiService =
         retrofitClient.provideMangaApiService()
+
+    @Singleton
+    @Provides
+    fun provideUserPreferenceData() : SignInApiService =
+        retrofitClient.provideSignInApiService()
 }
