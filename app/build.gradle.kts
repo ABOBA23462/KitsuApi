@@ -2,13 +2,13 @@ plugins {
     id("com.android.application")
     kotlin("android")
 
-    //safeargs
+    // safeargs
     id("androidx.navigation.safeargs")
 
-    //kapt
+    // kapt
     id("kotlin-kapt")
 
-    //hilt
+    // hilt
     id("com.google.dagger.hilt.android")
 }
 
@@ -48,24 +48,22 @@ android {
 }
 
 dependencies {
-    //core
+    // core
     implementation("androidx.core:core-ktx:1.10.0")
 
-    //AppCompat
+    // AppCompat
     implementation("androidx.appcompat:appcompat:1.6.1")
 
-    //Material Design
+    // Material Design
     implementation("com.google.android.material:material:1.8.0")
 
-    //UI Companents
+    // UI Companents
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-
-    //Livedata
+    // Livedata
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.1")
 
-    //ViewModel
+    // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
 
     testImplementation("junit:junit:4.13.2")
@@ -86,7 +84,7 @@ dependencies {
     // Navigation
     val navVersion = "2.5.3"
 
-    //   implementation
+    // implementation
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
@@ -97,13 +95,13 @@ dependencies {
     // ViewBindingPropertyDelegate
     val view_binding_property_delegate = "1.5.3"
 
-    //noinspection GradleDependency
+    // noinspection GradleDependency
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:$view_binding_property_delegate")
 
-    //view pager
+    // view pager
     implementation("androidx.viewpager2:viewpager2:1.1.0-beta01")
 
-    //Hilt
+    // Hilt
     val hilt_version = "2.45"
     implementation("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-compiler:$hilt_version")
