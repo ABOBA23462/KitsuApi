@@ -38,8 +38,8 @@ class SignInFragment :
                 onSuccess = {
                     userPreferencesData.apply {
                         isAuthorized = true
-                        accessToken = accessToken
-                        refreshToken = refreshToken
+                        accessToken = it.accessToken
+                        refreshToken = it.refreshToken
                     }
                     requireActivity().findNavController(R.id.fragment_container)
                         .navigate(R.id.action_signInFlowFragment_to_homeFlowFragment)
