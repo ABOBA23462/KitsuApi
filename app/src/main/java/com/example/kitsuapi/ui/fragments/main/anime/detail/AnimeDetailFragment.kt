@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.example.kitsuapi.R
 import com.example.kitsuapi.base.BaseFragment
 import com.example.kitsuapi.databinding.FragmentAnimeDetailBinding
+import com.example.kitsuapi.extensions.setImage
 import com.example.kitsuapi.extensions.toast
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,11 +30,15 @@ class AnimeDetailFragment : BaseFragment<FragmentAnimeDetailBinding, AnimeDetail
             },
             onSuccess = {
                 it.data.let {
-                    Glide.with(detailImg.context)
-                        .load(it.attributes.posterImage.original)
-                        .into(detailImg)
-                    tvName.text = it.attributes.titles.enJp
-                    toast("Успешно")
+                    binding.tvAnimeName.text = it!!.attributes.titles.enJp
+                    binding.ivAnimeImage.setImage(it.attributes.posterImage.original)
+                    binding.backgroundPoster.setImage(it.attributes.posterImage.original)
+                    binding.tvAnimeStudios.text = it.attributes.slug
+                    binding.tvAnimeEpisodes.text =
+                        it.attributes.episodeCount.toString()
+                    binding.tvAnimeStatus.text = it.attributes.status
+                    binding.tvAnimePremiered.text = it.attributes.createdAt
+                    binding.tvAnimeAgeRating.text = it.attributes.ageRating
                 }
             }
         )
