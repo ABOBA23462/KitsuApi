@@ -9,6 +9,7 @@ import com.example.kitsuapi.R
 import com.example.kitsuapi.base.BaseFragment
 import com.example.kitsuapi.databinding.FragmentAnimeBinding
 import com.example.kitsuapi.ui.adapters.anime.AnimeAdapter
+import com.example.kitsuapi.ui.fragments.main.HomeFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -36,7 +37,7 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
 
     private fun onItemClick(id: String) {
         findNavController().navigate(
-           AnimeFragmentDirections.actionAnimeFragmentToAnimeDetailFragment(
+           HomeFragmentDirections.actionHomeFragmentToAnimeDetailFragment(
                 id
             )
         )

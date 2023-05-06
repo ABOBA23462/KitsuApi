@@ -19,7 +19,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun initialize() {
-        binding.viewPager.adapter = ViewPagerAdapter(requireActivity())
+        binding.viewPager.adapter = ViewPagerAdapter(this@HomeFragment)
         TabLayoutMediator(binding.tabLayout, binding.viewPager){
                 tab, pos ->
             when(pos){
