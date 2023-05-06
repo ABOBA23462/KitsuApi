@@ -1,6 +1,5 @@
 package com.example.kitsuapi.data.repositories
 
-import android.util.Log
 import com.example.kitsuapi.base.BaseRepository
 import com.example.kitsuapi.data.remote.apiservice.SignInApiService
 import com.example.kitsuapi.models.AuthModel
@@ -11,6 +10,5 @@ class PostUserDataRepository @Inject constructor(
 ): BaseRepository() {
     fun postUserData(authModel: AuthModel) = doRequest {
         service.postAuthDataUser(authModel)
-        Log.e("rep",authModel.toString())
     }
 }
