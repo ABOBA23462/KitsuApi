@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.anime
+package com.example.kitsuapi.ui.fragments.main.anime
 
 import com.example.kitsuapi.base.BaseViewModel
 import com.example.kitsuapi.data.repositories.AnimeRepository

@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.anime
+package com.example.kitsuapi.ui.fragments.main.anime
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -36,7 +36,9 @@ class AnimeFragment : BaseFragment<FragmentAnimeBinding, AnimeViewModel>(R.layou
 
     private fun onItemClick(id: String) {
         findNavController().navigate(
-            AnimeFragmentDirections.actionAnimeFragmentToAnimeDetailFragment(id)
+           AnimeFragmentDirections.actionAnimeFragmentToAnimeDetailFragment(
+                id
+            )
         )
     }
 }

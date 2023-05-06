@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.home
+package com.example.kitsuapi.ui.fragments.main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/signInFlowFragment"
-        android:name="com.example.kitsuapi.ui.fragments.sign.flow.SignInFlowFragment"
+        android:name="com.example.kitsuapi.ui.fragments.sign.SignInFlowFragment"
         android:label="fragment_sign_in_flow"
         tools:layout="@layout/fragment_sign_in_flow">
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFlowFragment"
-        android:name="com.example.kitsuapi.ui.fragments.home.flow.HomeFlowFragment"
+        android:name="com.example.kitsuapi.ui.fragments.main.MainFlowFragment"
         android:label="fragment_home_flow"
         tools:layout="@layout/fragment_home_flow" />
 </navigation>

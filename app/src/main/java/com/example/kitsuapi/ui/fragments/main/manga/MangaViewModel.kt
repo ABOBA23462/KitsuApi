@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.manga
+package com.example.kitsuapi.ui.fragments.main.manga
 
 import com.example.kitsuapi.base.BaseViewModel
 import com.example.kitsuapi.data.repositories.MangaRepository

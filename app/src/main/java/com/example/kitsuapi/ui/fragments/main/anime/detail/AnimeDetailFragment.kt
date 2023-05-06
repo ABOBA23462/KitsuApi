@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.anime.detail
+package com.example.kitsuapi.ui.fragments.main.anime.detail
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs

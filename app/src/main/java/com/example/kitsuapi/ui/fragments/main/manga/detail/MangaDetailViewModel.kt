@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.manga.detail
+package com.example.kitsuapi.ui.fragments.main.manga.detail
 
 import androidx.lifecycle.ViewModel
 

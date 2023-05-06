@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/animeFragment"
-        android:name="com.example.kitsuapi.ui.fragments.anime.AnimeFragment"
+        android:name="com.example.kitsuapi.ui.fragments.main.anime.AnimeFragment"
         android:label="fragment_anime"
         tools:layout="@layout/fragment_anime" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.kitsuapi.ui.fragments.home.HomeFragment"
+        android:name="com.example.kitsuapi.ui.fragments.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -28,12 +28,12 @@
     </fragment>
     <fragment
         android:id="@+id/mangaFragment"
-        android:name="com.example.kitsuapi.ui.fragments.manga.MangaFragment"
+        android:name="com.example.kitsuapi.ui.fragments.main.manga.MangaFragment"
         android:label="fragment_manga"
         tools:layout="@layout/fragment_manga" />
     <fragment
         android:id="@+id/animeDetailFragment"
-        android:name="com.example.kitsuapi.ui.fragments.anime.detail.AnimeDetailFragment"
+        android:name="com.example.kitsuapi.ui.fragments.main.anime.detail.AnimeDetailFragment"
         android:label="fragment_anime_detail"
         tools:layout="@layout/fragment_anime_detail">
         <action

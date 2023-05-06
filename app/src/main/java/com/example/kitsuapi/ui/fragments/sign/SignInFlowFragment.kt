@@ -1,4 +1,4 @@
-package com.example.kitsuapi.ui.fragments.sign.flow
+package com.example.kitsuapi.ui.fragments.sign
 
 import com.example.kitsuapi.R
 import com.example.kitsuapi.base.BaseFlowFragment
